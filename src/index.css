@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-wheat-50 text-oceanic-900;
+  }
+  
+  * {
+    @apply antialiased;
+  }
+}
+
+@layer components {
+  /* Button Styles */
+  .btn-primary {
+    @apply bg-oceanic-500 hover:bg-oceanic-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  
+  .btn-secondary {
+    @apply bg-indigo-500 hover:bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 shadow-md hover:shadow-lg;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-oceanic-500 text-oceanic-500 hover:bg-oceanic-500 hover:text-white px-6 py-3 rounded-lg font-medium transition-all duration-200;
+  }
+
+  /* Input Styles */
+  .input-field {
+    @apply w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-oceanic-500 transition-colors duration-200 bg-white;
+  }
+  
+  .input-field:focus {
+    @apply ring-2 ring-oceanic-100;
+  }
+
+  /* Card Styles */
+  .card {
+    @apply bg-white rounded-xl shadow-md p-6 border border-gray-100;
+  }
+  
+  .card-hover {
+    @apply card hover:shadow-xl transition-shadow duration-200;
+  }
+
+  /* Tab Styles */
+  .tab {
+    @apply px-4 py-2 font-medium text-gray-600 hover:text-oceanic-600 cursor-pointer transition-colors duration-200 border-b-2 border-transparent;
+  }
+  
+  .tab-active {
+    @apply tab text-oceanic-600 border-oceanic-500;
+  }
+
+  /* Badge Styles */
+  .badge-success {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-herb-100 text-herb-700;
+  }
+  
+  .badge-warning {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-marigold-100 text-marigold-700;
+  }
+  
+  .badge-info {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-indigo-100 text-indigo-700;
+  }
+
+  /* Progress Bar */
+  .progress-bar {
+    @apply w-full h-2 bg-gray-200 rounded-full overflow-hidden;
+  }
+  
+  .progress-fill {
+    @apply h-full bg-gradient-to-r from-oceanic-500 to-indigo-500 transition-all duration-500;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  
+  .pulse-slow {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-oceanic-300 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-oceanic-400;
+}
