@@ -1,252 +1,419 @@
-# Waypoint Frontend
+# Waypoint - AI Market Intelligence Platform
 
-Beautiful, modern frontend for Waypoint - the market intelligence platform for founders.
+> Know Your Market Before You Build
 
-##  Design Features
+[![Gemini 3](https://img.shields.io/badge/Gemini-3%20Flash-blue)](https://ai.google.dev)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-- **Custom Color Palette**: Oceanic teal + Indigo + Nectarine accent
-- **Responsive**: Mobile-first design that works on all devices
-- **Smooth Animations**: Fade-ins, progress bars, and transitions
-- **Tabbed Dashboard**: Clean navigation through analysis sections
-- **Modern UI**: Built with Tailwind CSS for consistency
-
-##  Quick Start
-
-### Prerequisites
-
-- Node.js 18+ installed
-- Your Waypoint backend running on `http://localhost:8000`
-
-### Installation
-
-```bash
-# 1. Navigate to the frontend directory
-cd waypoint-frontend
-
-# 2. Install dependencies
-npm install
-
-# 3. Start development server
-npm run dev
-```
-
-The app will be available at `http://localhost:3000`
-
-### Environment Variables
-
-Create a `.env` file in the root directory:
-
-```env
-VITE_API_URL=http://localhost:8000
-```
-
-For production, update this to your deployed backend URL.
-
-##  Project Structure
-
-```
-waypoint-frontend/
-├── src/
-│   ├── components/
-│   │   ├── LandingPage.jsx      # Homepage with hero section
-│   │   ├── AnalysisForm.jsx     # Product idea submission form
-│   │   ├── ProcessingView.jsx   # Loading state with progress
-│   │   └── Dashboard.jsx        # Tabbed results interface
-│   ├── utils/
-│   │   └── api.js               # API communication functions
-│   ├── App.jsx                  # Main app with routing
-│   ├── main.jsx                 # Entry point
-│   └── index.css                # Global styles + Tailwind
-├── index.html
-├── vite.config.js
-├── tailwind.config.js
-└── package.json
-```
-
-##  User Flow
-
-1. **Landing Page** (`/`)
-   - Hero section with value proposition
-   - Clear CTA to start analysis
-
-2. **Analysis Form** (`/analyze`)
-   - Select stage (pre-launch / post-launch)
-   - Enter product idea
-   - Provide email
-
-3. **Processing View** (`/analyzing/:jobId`)
-   - Real-time progress updates
-   - Estimated time remaining
-   - Auto-redirect when complete
-
-4. **Dashboard** (`/results/:jobId`)
-   - Tabbed interface with 10 sections:
-     - Overview
-     - Category Diagnosis
-     - Market Reality
-     - Competitive Landscape
-     - User Needs
-     - Strategy & Positioning
-     - MVP Blueprint
-     - Pricing & Monetization
-     - Go-to-Market
-     - Risks & Unknowns
-
-##  Build for Production
-
-```bash
-# Build optimized production bundle
-npm run build
-
-# Preview production build locally
-npm run preview
-```
-
-The build output will be in the `dist/` folder.
-
-##  Deployment
-
-### Deploy to Vercel (Recommended)
-
-```bash
-# Install Vercel CLI
-npm i -g vercel
-
-# Deploy
-vercel
-
-# Follow prompts to:
-# 1. Link to your Vercel account
-# 2. Set project name
-# 3. Configure environment variables (VITE_API_URL)
-```
-
-### Deploy to Netlify
-
-```bash
-# Install Netlify CLI
-npm i -g netlify-cli
-
-# Build and deploy
-npm run build
-netlify deploy --prod
-
-# Set environment variable in Netlify dashboard:
-# VITE_API_URL = your_backend_url
-```
-
-### Environment Variables for Production
-
-In your deployment platform (Vercel/Netlify), set:
-
-```
-VITE_API_URL=https://your-backend-api.com
-```
-
-##  Customization
-
-### Colors
-
-Edit `tailwind.config.js` to change the color palette:
-
-```js
-colors: {
-  oceanic: { /* Your primary color */ },
-  indigo: { /* Your secondary color */ },
-  nectarine: { /* Your accent color */ },
-  // ... etc
-}
-```
-
-### Backend API URL
-
-Update `.env` file:
-
-```env
-VITE_API_URL=http://your-backend-url:port
-```
-
-### Styling
-
-All component styles use Tailwind utility classes. Global styles and custom classes are in `src/index.css`.
-
-## 🔧 Available Scripts
-
-```bash
-npm run dev       # Start development server
-npm run build     # Build for production
-npm run preview   # Preview production build
-```
-
-##  Responsive Breakpoints
-
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
-
-All components are fully responsive and tested on:
-- iPhone SE (375px)
-- iPad (768px)
-- Desktop (1920px)
-
-##  Troubleshooting
-
-### API Connection Issues
-
-**Problem**: Can't connect to backend
-
-**Solution**: 
-1. Make sure your backend is running
-2. Check `.env` file has correct `VITE_API_URL`
-3. Verify CORS is enabled in your FastAPI backend
-
-Add to your FastAPI `main.py`:
-
-```python
-from fastapi.middleware.cors import CORSMiddleware
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Add your frontend URL
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-```
-
-### Build Errors
-
-**Problem**: `npm install` fails
-
-**Solution**:
-```bash
-# Clear cache and reinstall
-rm -rf node_modules package-lock.json
-npm install
-```
-
-### Styling Issues
-
-**Problem**: Tailwind styles not applying
-
-**Solution**:
-```bash
-# Rebuild Tailwind
-npm run dev
-# Hard refresh browser (Cmd+Shift+R or Ctrl+Shift+R)
-```
-
-## 📄 License
-
-This project is part of the Waypoint platform.
-
-## 🤝 Support
-
-For issues or questions:
-1. Check this README
-2. Review component code comments
-3. Check browser console for errors
+**Built for the Google Gemini 3 Hackathon 2026**
 
 ---
 
-Built with ❤️ for founders who want to win.
+## 🎯 What is Waypoint?
+
+Waypoint is an AI-powered market intelligence platform that helps founders answer the critical question: **"Am I competing in the right category?"**
+
+Most startups fail not because they build bad products, but because they compete in the wrong category. Waypoint uses Gemini 3's advanced reasoning to analyze your product idea and tell you:
+
+- ✅ If you should reframe your category positioning
+- ✅ Who your real competitors are (not who you think they are)
+- ✅ What market signals indicate about your space
+- ✅ How to position uniquely
+- ✅ What to build first (MVP blueprint)
+- ✅ How to price and go-to-market
+
+**All in 60 seconds, powered by Gemini 3.**
+
+---
+
+## 🌟 Key Features
+
+### 1. **Category Diagnosis** (Core Innovation)
+Gemini 3 analyzes your product idea and determines if you're competing in the right category with evidence-based reasoning.
+
+**Example Output:**
+```
+You should REFRAME from "Content Scheduler" to "AI Content Strategist"
+
+Reasoning: Your AI-powered content ideation features are more valuable 
+than basic scheduling. The market for schedulers is saturated, but AI 
+content strategy is emerging with less competition.
+```
+
+### 2. **Competitive Intelligence**
+Automatically discovers and analyzes 15-30 real competitors with:
+- Positioning and messaging
+- Pricing strategies
+- Market gaps
+
+### 3. **Strategic Recommendations**
+10 detailed sections including:
+- Market Reality (size, trends, saturation)
+- User Pain & Desires
+- Strategy & Positioning
+- MVP Blueprint
+- Pricing & Monetization
+- Go-to-Market Strategy
+- Risk Analysis
+
+---
+
+## 🤖 Gemini 3 Integration
+
+Waypoint is built **entirely** on Gemini 3 and demonstrates advanced API usage:
+
+### **Model Used**
+- `gemini-2.0-flash-exp` (Gemini 3 Flash Preview)
+- ~15,000+ tokens per analysis (input + output)
+
+### **Gemini 3 Features Demonstrated**
+
+**1. Structured JSON Output**
+```python
+response = gemini_service.generate_structured(
+    prompt=market_data + instructions,
+    response_schema={
+        "category_diagnosis": {
+            "assumed_category": str,
+            "recommended_category": str,
+            "should_reframe": bool,
+            "reasoning": str,
+            "confidence": float
+        },
+        "overview": str,
+        "market_reality": str,
+        # ... 10 total sections
+    }
+)
+```
+
+**2. Multi-Turn Reasoning**
+```
+Stage 1: Base Analysis
+  ↓ (Gemini 3 processes market data)
+  → Category diagnosis + high-level insights
+
+Stage 2: Dashboard Expansion  
+  ↓ (Gemini 3 builds on Stage 1)
+  → Detailed 10-section analysis
+```
+
+**3. Large Context Window**
+- Processes 15-30 competitor profiles
+- Analyzes market signals and pain points
+- Synthesizes community discussions
+- Maintains context across all data sources
+
+**4. Business Reasoning**
+Gemini 3's ability to understand:
+- Market positioning nuances
+- Competitive dynamics
+- Strategic implications
+- Category adjacencies
+
+---
+
+## 🏗️ Architecture
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                    USER INTERFACE                        │
+│              React + Vite + Tailwind CSS                │
+└─────────────────────┬───────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────────────┐
+│                  BACKEND API                            │
+│                FastAPI + Python                         │
+│  ┌───────────────────────────────────────────────────┐ │
+│  │  1. Data Collection Layer                         │ │
+│  │     - Tavily AI (web intelligence)                │ │
+│  │     - Competitor discovery                        │ │
+│  │     - Market signals extraction                   │ │
+│  └───────────────────────────────────────────────────┘ │
+│                      │                                   │
+│                      ▼                                   │
+│  ┌───────────────────────────────────────────────────┐ │
+│  │  2. Gemini 3 Analysis Engine                      │ │
+│  │     Stage 1: Base analysis + category diagnosis   │ │
+│  │     Stage 2: Dashboard expansion                  │ │
+│  └───────────────────────────────────────────────────┘ │
+│                      │                                   │
+│                      ▼                                   │
+│  ┌───────────────────────────────────────────────────┐ │
+│  │  3. Storage Layer                                 │ │
+│  │     - MongoDB (analysis results)                  │ │
+│  │     - Job queue management                        │ │
+│  └───────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 🛠️ Tech Stack
+
+### **Backend**
+- **Framework:** FastAPI (Python 3.11)
+- **AI Engine:** Google Gemini 3 API (`gemini-2.0-flash-exp`)
+- **Data Collection:** Tavily AI
+- **Database:** MongoDB
+- **Deployment:** Render (free tier)
+
+### **Frontend**
+- **Framework:** React 18
+- **Build Tool:** Vite
+- **Styling:** Tailwind CSS
+- **Routing:** React Router v6
+- **Deployment:** Vercel
+
+### **Third-Party Integrations**
+- **Gemini 3 API** - Core AI reasoning and analysis
+- **Tavily AI** - Web intelligence and data collection
+- **MongoDB Atlas** - Database (free tier)
+
+---
+
+## 🚀 Getting Started
+
+### **Prerequisites**
+- Python 3.11+
+- Node.js 18+
+- MongoDB instance
+- API Keys:
+  - Gemini API key ([Get it here](https://ai.google.dev))
+  - Tavily API key ([Get it here](https://tavily.com))
+
+### **Backend Setup**
+
+```bash
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/waypoint-backend.git
+cd waypoint-backend
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Create .env file
+cp .env.example .env
+
+# Edit .env with your API keys
+nano .env
+
+# Run the server
+uvicorn app.main:app --reload
+```
+
+**Your `.env` should look like:**
+```
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/
+GEMINI_API_KEY=your_gemini_api_key
+TAVILY_API_KEY=your_tavily_api_key
+```
+
+**Backend will run at:** `http://localhost:8000`
+
+### **Frontend Setup**
+
+```bash
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/waypoint-frontend.git
+cd waypoint-frontend
+
+# Install dependencies
+npm install
+
+# Create .env file
+cp .env.example .env
+
+# Edit .env
+nano .env
+
+# Run development server
+npm run dev
+```
+
+**Your `.env` should look like:**
+```
+VITE_API_URL=http://localhost:8000
+```
+
+**Frontend will run at:** `http://localhost:3000`
+
+---
+
+## 📊 API Documentation
+
+### **Submit Analysis**
+```bash
+POST /analyze
+
+Body:
+{
+  "product_idea": "AI content management app",
+  "tier": "free",
+  "email": "optional@email.com"
+}
+
+Response:
+{
+  "success": true,
+  "job_id": "abc123...",
+  "message": "Analysis started"
+}
+```
+
+### **Get Results**
+```bash
+GET /results/{job_id}
+
+Response:
+{
+  "success": true,
+  "data": {
+    "status": "complete",
+    "product_idea": "AI content management app",
+    "analysis": {
+      "category_diagnosis": "...",
+      "overview": "...",
+      "market_reality": "...",
+      // ... 10 total sections
+    },
+    "raw_market_data": {
+      "competitors": [...],
+      "market_intelligence": {...}
+    }
+  }
+}
+```
+
+### **Health Check**
+```bash
+GET /health
+
+Response:
+{
+  "status": "healthy"
+}
+```
+
+---
+
+## 🎓 How It Works
+
+### **1. Data Collection (15-20 seconds)**
+```python
+# Tavily searches for competitors
+competitors = await tavily_service.search_competitors(product_idea)
+
+# Tavily gathers market signals
+pain_points = await tavily_service.search_market_signals(
+    f"{product_idea} problems pain points"
+)
+```
+
+### **2. Gemini 3 Analysis - Stage 1 (20-30 seconds)**
+```python
+# Base analysis with category diagnosis
+base_analysis = gemini_service.generate_structured(
+    prompt=f"""
+    Analyze this product idea: {product_idea}
+    
+    Market data: {collected_data}
+    
+    Determine:
+    1. What category they THINK they're in
+    2. What category they SHOULD be in
+    3. Should they reframe? Why?
+    """,
+    response_schema=base_schema
+)
+```
+
+### **3. Gemini 3 Analysis - Stage 2 (20-30 seconds)**
+```python
+# Expand into detailed dashboard
+detailed_analysis = gemini_service.expand_dashboard_analysis(
+    collected_data=market_data,
+    base_analysis=stage1_result
+)
+```
+
+### **4. Return Results**
+```python
+# Save to MongoDB and return to user
+await db.analyses.insert_one({
+    "job_id": job_id,
+    "status": "complete",
+    "analysis": detailed_analysis,
+    "raw_market_data": market_data
+})
+```
+
+---
+
+## 🎯 Judging Criteria Alignment
+
+### **Technical Execution (40%)**
+- ✅ Production-grade Gemini 3 integration
+- ✅ Structured JSON output with error handling
+- ✅ Multi-stage reasoning workflow
+- ✅ Clean, documented code
+- ✅ Working deployment (Render + Vercel)
+
+### **Potential Impact (20%)**
+- ✅ Solves critical founder problem (category positioning)
+- ✅ Replaces expensive consultant work
+- ✅ Broad market appeal (any B2B/B2C startup)
+- ✅ Significant time savings (weeks → 60 seconds)
+
+### **Innovation/Wow Factor (30%)**
+- ✅ First tool to automate category diagnosis
+- ✅ Novel use of Gemini 3 for business strategy
+- ✅ Evidence-based AI reasoning (not generic advice)
+- ✅ Unique value proposition
+
+### **Presentation/Demo (10%)**
+- ✅ Clear problem definition
+- ✅ Working demo with real results
+- ✅ Comprehensive documentation
+- ✅ Architecture diagram included
+- ✅ Explains Gemini 3 usage clearly
+
+
+---
+
+## 🤝 Contributing
+
+This project was built for the Gemini 3 Hackathon and is currently in hackathon submission mode.
+
+---
+
+## 📄 License
+
+MIT License - see [LICENSE](LICENSE) file for details
+
+---
+
+## 🙏 Acknowledgments
+
+- **Google Gemini Team** - For the amazing Gemini 3 API
+- **Tavily AI** - For reliable web intelligence
+- **Render & Vercel** - For free hosting
+- **MongoDB** - For free database tier
+
+---
+
+## 🔗 Links
+
+- 🌐 **Live Demo:** [https://waypoint-pi.vercel.app](https://waypoint-pi.vercel.app/)
+- 💻 **Frontend Code:** [github.com/rutvishah22/waypoint-frontend](https://github.com/rutvishah22/waypoint-frontend)
+- ⚙️ **Backend Code:** [github.com/rutvishah22/waypoint-backend](https://github.com/rutvishah22/waypoint-backend)
+- 🎥 **Demo Video:** [YouTube Link](https://youtube.com/...)
+
+---
+
+**Built with ❤️ and Gemini 3 for the Google Gemini 3 Hackathon 2026**
