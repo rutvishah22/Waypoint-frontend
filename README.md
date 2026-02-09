@@ -22,7 +22,7 @@ Most startups fail not because they build bad products, but because they compete
 - ✅ What to build first (MVP blueprint)
 - ✅ How to price and go-to-market
 
-**All in under 24 hours, powered by Gemini 3.**
+**All in under an hour, powered by Gemini 3.**
 
 ---
 
@@ -154,7 +154,7 @@ Gemini 3's ability to understand:
 
 ### **Backend**
 - **Framework:** FastAPI (Python 3.11)
-- **AI Engine:** Google Gemini 3 API (`gemini-2.0-flash-exp`)
+- **AI Engine:** Google Gemini 3 API (`gemini-3.0-flash-exp`)
 - **Data Collection:** Tavily AI
 - **Database:** MongoDB
 - **Deployment:** Render (free tier)
@@ -355,7 +355,7 @@ await db.analyses.insert_one({
 
 ---
 
-## 🎯 Judging Criteria Alignment
+##  Judging Criteria Alignment
 
 ### **Technical Execution (40%)**
 - ✅ Production-grade Gemini 3 integration
@@ -386,7 +386,7 @@ await db.analyses.insert_one({
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 This project was built for the Gemini 3 Hackathon and is currently in hackathon submission mode.
 
@@ -398,7 +398,7 @@ MIT License - see [LICENSE](LICENSE) file for details
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **Google Gemini Team** - For the amazing Gemini 3 API
 - **Tavily AI** - For reliable web intelligence
@@ -412,7 +412,7 @@ MIT License - see [LICENSE](LICENSE) file for details
 - 🌐 **Live Demo:** [https://waypoint-pi.vercel.app](https://waypoint-pi.vercel.app/)
 - 💻 **Frontend Code:** [github.com/rutvishah22/waypoint-frontend](https://github.com/rutvishah22/waypoint-frontend)
 - ⚙️ **Backend Code:** [github.com/rutvishah22/waypoint-backend](https://github.com/rutvishah22/waypoint-backend)
-- 🎥 **Demo Video:** [YouTube Link](https://youtube.com/...)
+- 🎥 **Demo Video:** [YouTube Link](https://youtu.be/GhqKyxDsOa0?si=Ge_WVxVSgM2DyN7J)
 
 ---
 
