@@ -63,7 +63,7 @@ Automatically discovers and analyzes 15-30 real competitors with:
 Waypoint is built **entirely** on Gemini 3 and demonstrates advanced API usage:
 
 ### **Model Used**
-- `gemini-2.0-flash-exp` (Gemini 3 Flash Preview)
+- `gemini-3-flash-preview` (Gemini 3 Flash Preview)
 - ~15,000+ tokens per analysis (input + output)
 
 ### **Gemini 3 Features Demonstrated**
@@ -154,7 +154,7 @@ Gemini 3's ability to understand:
 
 ### **Backend**
 - **Framework:** FastAPI (Python 3.11)
-- **AI Engine:** Google Gemini 3 API (`gemini-3.0-flash-exp`)
+- **AI Engine:** Google Gemini 3 API (`gemini-3-flash-preview`)
 - **Data Collection:** Tavily AI
 - **Database:** MongoDB
 - **Deployment:** Render (free tier)
