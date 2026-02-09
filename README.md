@@ -22,7 +22,7 @@ Most startups fail not because they build bad products, but because they compete
 - ✅ What to build first (MVP blueprint)
 - ✅ How to price and go-to-market
 
-**All in 60 seconds, powered by Gemini 3.**
+**All in under 24 hours, powered by Gemini 3.**
 
 ---
 
