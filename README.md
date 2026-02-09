@@ -2,7 +2,7 @@
 
 Beautiful, modern frontend for Waypoint - the market intelligence platform for founders.
 
-## 🎨 Design Features
+##  Design Features
 
 - **Custom Color Palette**: Oceanic teal + Indigo + Nectarine accent
 - **Responsive**: Mobile-first design that works on all devices
@@ -10,7 +10,7 @@ Beautiful, modern frontend for Waypoint - the market intelligence platform for f
 - **Tabbed Dashboard**: Clean navigation through analysis sections
 - **Modern UI**: Built with Tailwind CSS for consistency
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -42,7 +42,7 @@ VITE_API_URL=http://localhost:8000
 
 For production, update this to your deployed backend URL.
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 waypoint-frontend/
@@ -63,7 +63,7 @@ waypoint-frontend/
 └── package.json
 ```
 
-## 🎯 User Flow
+##  User Flow
 
 1. **Landing Page** (`/`)
    - Hero section with value proposition
@@ -92,7 +92,7 @@ waypoint-frontend/
      - Go-to-Market
      - Risks & Unknowns
 
-## 🏗️ Build for Production
+##  Build for Production
 
 ```bash
 # Build optimized production bundle
@@ -104,7 +104,7 @@ npm run preview
 
 The build output will be in the `dist/` folder.
 
-## 🚢 Deployment
+##  Deployment
 
 ### Deploy to Vercel (Recommended)
 
@@ -143,7 +143,7 @@ In your deployment platform (Vercel/Netlify), set:
 VITE_API_URL=https://your-backend-api.com
 ```
 
-## 🎨 Customization
+##  Customization
 
 ### Colors
 
@@ -178,7 +178,7 @@ npm run build     # Build for production
 npm run preview   # Preview production build
 ```
 
-## 📱 Responsive Breakpoints
+##  Responsive Breakpoints
 
 - **Mobile**: < 768px
 - **Tablet**: 768px - 1024px
@@ -189,7 +189,7 @@ All components are fully responsive and tested on:
 - iPad (768px)
 - Desktop (1920px)
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### API Connection Issues
 
